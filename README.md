@@ -1,11 +1,10 @@
 # A new website?
-
 A completely static, HTML website with **NO Javascript**! (excluding `compile.js` but that is not included in the website itself)
 
-Although using React is the standard, I want to support people who don't enable Javascript in their browsers for privacy/security reasons. *and also because react is hard but im just bad*
+Although using React is the standard for websites, I want to support people who don't enable Javascript in their browsers for privacy/security reasons. *im also not using react because react is hard but im just bad*
 
 ## ✨ What's special?
-1. As stated earlier, absolutely no Javascript is used on the website itself, but that's just the beginning.
+1. As stated earlier, absolutely no Javascript is used on the website itself, but that's only the beginning.
 
 2. Any time a link can be avoided, a link will be avoided. In other words, CSS is directly injected into the HTML rather than linking to an external CSS file.
 
@@ -15,11 +14,12 @@ Although using React is the standard, I want to support people who don't enable 
 
 ## 🚀 Technologies used
 ### [Pug](https://github.com/pugjs/pug)
- Pugis a template engine for **HTML** which offers a much easier to use syntax over HTML. However, Pug code still needs to be compiled down to HTML for it to be usable.
+ Pug is a template engine for **HTML** which offers a much easier to use syntax over HTML. However, Pug code still needs to be compiled down to HTML for it to be usable.
 > Pug is a high-performance template engine heavily influenced by [Haml](http://haml.info/)
 > and implemented with JavaScript for [Node.js](http://nodejs.org) and browsers. For bug reports,
 > feature requests and questions, [open an issue](https://github.com/pugjs/pug/issues/new).
 > For discussion join the [chat room](https://gitter.im/pugjs/pug).
+
 Source: [Pug README](https://github.com/pugjs/pug#readme)
 
 ### [Sass](https://github.com/sass/sass)
@@ -28,11 +28,13 @@ Like Pug, Sass is a language that compiles to **CSS** that offers a much cleaner
 > variables, mixins, selector inheritance, and more. It's translated to
 > well-formatted, standard CSS using the command line tool or a plugin for your
 > build system.
+
 Source: [Sass README](https://github.com/sass/sass#readme)
 
 ### [Node.js](https://github.com/nodejs/node)
 Although I've restricted the website to use absolutely NO Javascript whatsoever, ironically, Javascript is used to build the website. Both Sass and Pug, as well as `compile.js`, run with Node.js.
 > Node.js is an open-source, cross-platform, JavaScript runtime environment.
+
 Source: [Node.js README](https://github.com/nodejs/node#readme)
 
 ## 📝 Additional Notes
