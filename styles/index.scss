@@ -1,0 +1,16 @@
+@use 'vars' as *;
+@use 'base';
+@use 'src/home/explain.home';
+@use 'src/home/name.home';
+@use 'src/home/nav.home';
+
+body {
+    overflow: hidden;
+}
+
+.title {
+    margin-top: 5rem;
+
+    font-size: $font-lg;
+    color: $frost-1;
+}

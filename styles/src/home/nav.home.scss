@@ -1,0 +1,15 @@
+@use '../../vars' as *;
+
+.nav-items a {
+    width: auto;
+    display: block;
+
+    font-size: $font-md;
+    
+    color: $nord-3;
+    text-decoration: none;
+
+    &:hover {
+        color: $frost-3;
+    }
+}

@@ -1,0 +1,16 @@
+@use 'vars' as *;
+
+// Global styles to be applied to all pages
+* {
+    font-family: RubikOne;
+}
+
+body {
+    padding: 0% 10%;
+
+    background-color: $nord-darker;
+}
+
+a {
+    color: $aurora-4;
+}
