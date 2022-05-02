@@ -2,13 +2,9 @@
     "emeraldwalk.runonsave": {
         "commands": [
             {
-                "match": "\\.s[ac]ss",
-                "cmd": "node ./compile.js scss ${file}"
+                "match": "\\.(s[ac]ss|pug)",
+                "cmd": "node ./compile.js"
             },
-            {
-                "match": "\\.pug$",
-                "cmd": "node ./compile.js pug ${file}"
-            }
         ]
     },
 }

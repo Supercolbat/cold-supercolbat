@@ -28,7 +28,11 @@ const HTML_MINIFY_OPTIONS = {
 }
 
 // Find files
-const paths = ['styles', 'styles/src', '.'];
+const paths = [
+    'styles',
+    'styles/src/home',
+    '.'
+];
 let files = [];
 paths.forEach((path) => {
     let newPath = Path.join(__dirname, path);
