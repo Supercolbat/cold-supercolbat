@@ -1,0 +1,25 @@
+div.home-page
+  div.nav
+    span.title Hi there!
+    div.nav-items
+      a(href="#about") About
+      a(href="#projects") Projects
+      a(href="#blog") Blog
+
+  div.name
+    p JOEY
+    p LENT
+
+  // Controls for popup
+  label.explain-toggle(for="explain") ?
+  input#explain(type="checkbox")
+
+  // Popup for explanation
+  div.explain-popup
+    div.content-wrapper
+      div.header
+        p What's this?
+      div.content
+        p This website is designed with NO Javascript whatsoever!
+        p Check out the 
+          a(href="https://github.com/Supercolbat/cold-supercolbat#readme" target="_blank") README

@@ -1,0 +1,63 @@
+@use '../../vars' as *;
+
+#explain {
+  display: none;
+}
+
+.explain-toggle {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+
+  width: 3rem;
+  height: 3rem;
+
+  border: none;
+  border-radius: 50%;
+
+  font-size: $font-md;
+  text-align: center;
+
+  background-color: $frost-0;
+  color: $nord-1;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.explain-popup {
+  // Visibilty state
+  display: none;
+
+  // Style
+  position: fixed;
+  bottom: 5rem;
+  right: 6rem;
+
+  width: 20rem;
+  height: 10rem;
+
+  padding: 16px;
+
+  border-radius: 25px;
+  
+  background-color: $frost-0;
+
+  .header * {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .header p {
+    font-size: $font-md;
+    color: $nord-darker;
+  }
+
+  .content p {
+    color: $nord-darker;
+  }
+}
+
+#explain:checked + .explain-popup {
+  display: block;
+}

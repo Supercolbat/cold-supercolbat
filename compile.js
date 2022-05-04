@@ -10,78 +10,69 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 const Path = require('path');
 
+// Compilers
+const sass = require('sass-embedded');
 const pug = require('pug');
+
+// Formatters
 const pretty = require('pretty');
 const { minify } = require('html-minifier');
 const CleanCSS = require('clean-css');
 
 const HTML_MINIFY_OPTIONS = {
-    collapseBooleanAttributes: true,
-    removeAttributeQuotes: true,
-    removeRedundantAttributes: true,
-    removeEmptyAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    removeOptionalTags: true, // optional
-    removeComments: true,
-    minifyCSS: new CleanCSS(),
-    // minifyURLs: true, // npm install relateurl
-}
+  collapseBooleanAttributes: true,
+  removeAttributeQuotes: true,
+  removeRedundantAttributes: true,
+  removeEmptyAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  removeOptionalTags: true, // optional
+  removeComments: true,
+  minifyCSS: new CleanCSS(),
+  // minifyURLs: true, // npm install relateurl
+};
 
 // Find files
-const paths = [
-    'styles',
-    'styles/src/home',
-    '.'
+const targets = [
+  "styles/index.scss",
+  "index.pug"
 ];
-let files = [];
-paths.forEach((path) => {
-    let newPath = Path.join(__dirname, path);
-    fs.readdirSync(newPath).forEach((filename) => {
-        // Check if the file is of a valid type
-        // Also check if the file isn't the one passed in argv
-        if (filename.match(/\.(scss|pug)$/g)) {
-            files.push(Path.join(newPath, filename));
-        }
-    });
-})
 
 // Compile each file
-files.forEach((file) => {
-    console.log('[+] Compiling', file);
-    let parts = file.split('.')
-    let filename = parts[0];
-    let extension = parts.pop();
+targets.forEach((file) => {
+  console.log('[+] Compiling', file);
+  let parts = file.split('.');
+  let filename = Path.basename(parts[0]);
+  let extension = parts.pop();
 
-    switch (extension) {
-        case 'scss':
-            // Requires `sass` to be installed and accessible through the terminal
-            // TODO: check for sass
+  switch (extension) {
+    case 'scss':
+      // Write CSS
+      const result = sass.compile(file);
 
-            // Write CSS
-            let child_process = spawn('sass', [file, filename + '.css', '--no-source-map']);
-            
-            child_process.stderr.on('data', (data) => {
-                console.log(`stderr: ${data}`);
-            });
+      fs.writeFileSync(`build/${filename}.css`, result.css, {flag: 'w+'});
 
-            break;
-        
-        case 'pug':
-            let html = pug.compileFile(file)();
-            
-            // Write formatted HTML
-            fs.writeFile(filename + '.html', pretty(html, {ocd: true}), {flag: 'w+'}, err => {
-                if (err) console.log(err);
-            });
-            
-            // Write default, minified HTML
-            fs.writeFile(filename + '.min.html', minify(html, HTML_MINIFY_OPTIONS), {flag: 'w+'}, err => {
-                if (err) console.log(err);
-            });
+      break;
 
-            break;
+    case 'pug':
+      let html = pug.compileFile(file)();
+      
+      // Write formatted HTML
+      fs.writeFileSync(
+        `build/${filename}.html`,
+        pretty(html, {ocd: true}),
+        {flag: 'w+'}
+      );
+      
+      // Write default, minified HTML
+      fs.writeFileSync(
+        `build/${filename}.min.html`,
+        minify(html, HTML_MINIFY_OPTIONS),
+        {flag: 'w+'}
+      );
 
-        default:
-            console.error('Unsupported language: ' + extension)
-    }
+      break;
+
+    default:
+      console.error('Unsupported language: ' + extension);
+  }
 });
