@@ -32,7 +32,7 @@ Like Pug, Sass is a language that compiles to **CSS** that offers a much cleaner
 Source: [Sass README](https://github.com/sass/sass#readme)
 
 ### [Node.js](https://github.com/nodejs/node)
-Although I've restricted the website to use absolutely NO Javascript whatsoever, ironically, Javascript is used to build the website. Both Sass and Pug, as well as `compile.js`, run with Node.js.
+Ironically, although I've avoiding all Javascript on the website, Javascript is used to build the website. Both Sass and Pug, as well as `compile.js`, run with Node.js.
 > Node.js is an open-source, cross-platform, JavaScript runtime environment.
 
 Source: [Node.js README](https://github.com/nodejs/node#readme)
