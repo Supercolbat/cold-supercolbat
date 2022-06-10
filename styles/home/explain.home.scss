@@ -1,4 +1,4 @@
-@use '../../vars' as *;
+@use '../vars' as *;
 
 #explain {
   display: none;
@@ -27,7 +27,8 @@
 
 .explain-popup {
   // Visibilty state
-  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
 
   // Style
   position: fixed;
@@ -40,7 +41,7 @@
   padding: 16px;
 
   border-radius: 25px;
-  
+
   background-color: $frost-0;
 
   .header * {
@@ -59,5 +60,5 @@
 }
 
 #explain:checked + .explain-popup {
-  display: block;
+  opacity: 1;
 }

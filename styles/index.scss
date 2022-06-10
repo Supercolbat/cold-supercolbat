@@ -1,8 +1,11 @@
 @use 'vars' as *;
 @use 'base';
+
 @use 'home/explain.home';
 @use 'home/name.home';
 @use 'home/nav.home';
+
+@use 'about.scss';
 
 body {
   overflow: hidden;
@@ -10,15 +13,31 @@ body {
 
 .title {
   margin-top: 5rem;
-    
+
   font-size: $font-lg;
   color: $frost-1;
 }
 
-.about-page {
+// Pages
+.home-page {
+  width: 100%;
+  height: 100%;
+
+  background-color: $nord-darker;
+}
+
+#about {
+  width: 100%;
+  height: 100%;
+
   display: none;
+
+  background-color: $nord-darker;
 
   &:target {
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

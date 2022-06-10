@@ -27,13 +27,13 @@ const HTML_MINIFY_OPTIONS = {
   removeStyleLinkTypeAttributes: true,
   removeOptionalTags: true, // optional
   removeComments: true,
-  minifyCSS: new CleanCSS(),
-  // minifyURLs: true, // npm install relateurl
+  minifyCSS: new CleanCSS()
 };
 
 // Find files
 const targets = [
   "styles/index.scss",
+  "styles/blog.scss",
   "index.pug"
 ];
 
@@ -55,17 +55,17 @@ targets.forEach((file) => {
 
     case 'pug':
       let html = pug.compileFile(file)();
-      
+
       // Write formatted HTML
       fs.writeFileSync(
-        `build/${filename}.html`,
+        `build/${filename}.max.html`,
         pretty(html, {ocd: true}),
         {flag: 'w+'}
       );
-      
+
       // Write default, minified HTML
       fs.writeFileSync(
-        `build/${filename}.min.html`,
+        `build/${filename}.html`,
         minify(html, HTML_MINIFY_OPTIONS),
         {flag: 'w+'}
       );

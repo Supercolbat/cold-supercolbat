@@ -1,4 +1,4 @@
-@use '../../vars' as *;
+@use '../vars' as *;
 
 .name {
   position: absolute;
@@ -10,21 +10,19 @@
 
   p:first-of-type {
     position: absolute;
-    top: 0;
-  
-    color: $frost-0;
-  }
-  
-  p:last-of-type {
-    position: absolute;
     top: -0.5rem;
     padding-left: 1.5rem;
-  
-    z-index: -1;
-    
+
     writing-mode: vertical-lr;
     text-orientation: upright;
-    
+
     color: $nord-3;
+  }
+
+    p:last-of-type {
+    position: absolute;
+    top: 0;
+
+    color: $frost-0;
   }
 }

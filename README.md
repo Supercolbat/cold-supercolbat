@@ -1,5 +1,5 @@
 # A new website?
-A completely static, HTML website with **NO Javascript**! (excluding `compile.js` but that is not included in the website itself)
+A website that depends on absolutely **NO Javascript**! (as in javascript on the browser)
 
 Although using React is the standard for websites, I want to support people who don't enable Javascript in their browsers for privacy/security reasons. *im also not using react because react is hard but im just bad*
 
@@ -12,9 +12,11 @@ Although using React is the standard for websites, I want to support people who 
 
 3. All files are minified. Yes, even the HTML. And yes, even the [fonts](https://www.fontsquirrel.com/tools/webfont-generator). While full-blown optimizations aren't done as of right now, this could be the case in the future.
 
+    In addition, the files can be sent in gzip format for further compression. Most browsers automatically do this.
+
 ## 🚀 Technologies used
 ### [Pug](https://github.com/pugjs/pug)
- Pug is a template engine for **HTML** which offers a much easier to use syntax over HTML. However, Pug code still needs to be compiled down to HTML for it to be usable.
+Pug is a template engine for **HTML** which offers a much easier to use syntax over HTML. However, Pug code still needs to be compiled down to HTML for it to be usable.
 > Pug is a high-performance template engine heavily influenced by [Haml](http://haml.info/)
 > and implemented with JavaScript for [Node.js](http://nodejs.org) and browsers. For bug reports,
 > feature requests and questions, [open an issue](https://github.com/pugjs/pug/issues/new).
@@ -40,5 +42,3 @@ Source: [Node.js README](https://github.com/nodejs/node#readme)
 ## 📝 Additional Notes
 ### Minifying
 Sass doesn't compile to a minifed CSS. The way I get around this is by using [html-minifed](https://www.npmjs.com/package/html-minifier) and [clean-css](https://www.npmjs.com/package/clean-css) to minify both the CSS and the HTML in one go. The reason this works is because the CSS contents are [directly inserted](https://pugjs.org/language/includes.html) into HTML document by Pug. Since Pug's goal is not to generate minified HTML, that job is passed onto html-minified, which also uses clean-css to minify the CSS in the HTML.
-
-Additionally, servers can send gzipped versions of documents to the client if they pass `Accept-Encoding: gzip, deflate` as a header. I'm not entirely sure if I'm able to do this with what I have but I'll update the README if I support this.

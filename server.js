@@ -7,7 +7,21 @@ const app = express();
 console.log('Enabling gzip'); app.use(compression());
 
 app.get('/', function (req, res) {
-  res.send(fs.readFileSync('build/index.min.html', 'utf-8'));
+  res.send(fs.readFileSync('build/index.html', 'utf-8'));
+});
+
+app.get('/blog', function (req, res) {
+  if (req.path) {
+    let file = path.join(__dirname, req.url);
+    res.send(fs.readFileSync(file));
+  }
+});
+
+app.get('/b', function (req, res) {
+  if (req.path) {
+    let file = path.join(__dirname, req.url);
+    res.send(fs.readFileSync(file));
+  }
 });
 
 app.get('*', function (req, res) {

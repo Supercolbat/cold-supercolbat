@@ -1,17 +1,22 @@
-@use '../../vars' as *;
+@use '../vars' as *;
 
 .nav {
+  height: 100%;
+
+  padding-left: 10%;
+
   display: flex;
-  flex-direction: vertical;
+  flex-direction: column;
   justify-content: center;
+  gap: 50px;
 }
 
-.nav-items a {
+.nav-items > * {
   width: auto;
   display: block;
 
   font-size: $font-md;
-  
+
   color: $nord-3;
   text-decoration: none;
 

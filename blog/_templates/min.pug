@@ -1,0 +1,16 @@
+//- Template for minimal blog posts.
+//- Not to be used standalone!
+
+doctype html
+html
+  head
+    style
+      body {
+        background-color: #262B35;
+        color: #ECEFF4;
+        font-family: monospace;
+      }
+  body
+    //- '@file' will get replaced with the path
+    //- to the markdown file.
+    include:markdown-it @file
