@@ -1,6 +1,6 @@
 /*
   Script that compiles a file using it's respective tool.
-  Used with the 'Run on Save' extension for VS Code.
+  Used with the 'Run on Save' extension for VS Code or standalone.
   Configuration for that is found in .vscode/settings.json under 'emeraldwalk.runonsave'.
 */
 'use strict';
@@ -28,14 +28,11 @@ const HTML_MINIFY_OPTIONS = {
   removeOptionalTags: true, // optional
   removeComments: true,
   minifyCSS: new CleanCSS(),
-  // minifyURLs: true, // npm install relateurl
+  // minifyURLs: true, // yarn install relateurl
 };
 
 // Find files
-const targets = [
-  "styles/index.scss",
-  "index.pug"
-];
+const targets = ['styles/index.scss', 'index.pug'];
 
 // Compile each file
 targets.forEach((file) => {
@@ -49,25 +46,23 @@ targets.forEach((file) => {
       // Write CSS
       const result = sass.compile(file);
 
-      fs.writeFileSync(`build/${filename}.css`, result.css, {flag: 'w+'});
+      fs.writeFileSync(`build/${filename}.css`, result.css, { flag: 'w+' });
 
       break;
 
     case 'pug':
       let html = pug.compileFile(file)();
-      
+
       // Write formatted HTML
-      fs.writeFileSync(
-        `build/${filename}.html`,
-        pretty(html, {ocd: true}),
-        {flag: 'w+'}
-      );
-      
+      fs.writeFileSync(`build/${filename}.html`, pretty(html, { ocd: true }), {
+        flag: 'w+',
+      });
+
       // Write default, minified HTML
       fs.writeFileSync(
         `build/${filename}.min.html`,
         minify(html, HTML_MINIFY_OPTIONS),
-        {flag: 'w+'}
+        { flag: 'w+' }
       );
 
       break;
