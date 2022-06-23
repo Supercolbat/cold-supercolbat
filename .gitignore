@@ -1,6 +1,6 @@
-# Node files
+# Node stuff
 node_modules/*
-package-lock.json
+yarn-error.log
 
 # Compiled and unused files
 index.html
