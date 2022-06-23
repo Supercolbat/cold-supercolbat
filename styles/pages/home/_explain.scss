@@ -1,25 +1,24 @@
-@use '../../vars' as *;
-
 #explain {
   display: none;
 }
 
 .explain-toggle {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
 
   width: 3rem;
   height: 3rem;
 
-  border: none;
-  border-radius: 50%;
+  bottom: 2rem;
+  right: 2rem;
 
   font-size: $font-md;
   text-align: center;
 
   background-color: $frost-0;
   color: $nord-1;
+
+  border: none;
+  border-radius: 50%;
 
   cursor: pointer;
   user-select: none;
@@ -29,19 +28,19 @@
   // Visibilty state
   display: none;
 
-  // Style
   position: fixed;
-  bottom: 5rem;
-  right: 6rem;
 
   width: 20rem;
   height: 10rem;
 
   padding: 16px;
 
-  border-radius: 25px;
-  
+  bottom: 5rem;
+  right: 6rem;
+
   background-color: $frost-0;
+
+  border-radius: 25px;  
 
   .header * {
     display: inline-block;

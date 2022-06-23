@@ -1,5 +1,3 @@
-@use '../../vars' as *;
-
 .nav {
   display: flex;
   flex-direction: vertical;
@@ -7,11 +5,10 @@
 }
 
 .nav-items a {
-  width: auto;
   display: block;
+  width: auto;
 
   font-size: $font-md;
-  
   color: $nord-3;
   text-decoration: none;
 

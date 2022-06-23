@@ -1,24 +1,10 @@
-@use 'vars' as *;
-@use 'base';
-@use 'home/explain.home';
-@use 'home/name.home';
-@use 'home/nav.home';
+// Global variables
+@import 'base/colors';
+@import 'base/fonts';
+@import 'base/typography';
 
-body {
-  overflow: hidden;
-}
+// Global styles
+@import 'base/core';
 
-.title {
-  margin-top: 5rem;
-    
-  font-size: $font-lg;
-  color: $frost-1;
-}
-
-.about-page {
-  display: none;
-
-  &:target {
-    display: block;
-  }
-}
+// Styles for each page
+@import 'pages/home';

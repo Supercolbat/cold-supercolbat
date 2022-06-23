@@ -1,0 +1,30 @@
+* {
+  font-family: RubikOne;
+}
+
+body {
+  overflow: hidden;
+
+  padding: 0% 10%;
+
+  background-color: $nord-darker;
+}
+
+.title {
+  margin-top: 5rem;
+    
+  font-size: $font-lg;
+  color: $frost-1;
+}
+
+.about-page {
+  display: none;
+
+  &:target {
+    display: block;
+  }
+}
+
+a {
+  color: $aurora-4;
+}
