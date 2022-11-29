@@ -1,4 +1,4 @@
-# My soon-to-be official website!?
+# ~~My soon-to-be official website!?~~ There's going to be *another* remake :P
 *TL;DR: Cool website with **NO Javascript** being served to the client! After all, why use Javascript when you can use CSS.*
 
 Although using React is the standard for websites, I want to support people who don't enable Javascript in their browsers for privacy/security reasons. *im also not using react because react is hard and im bad*
